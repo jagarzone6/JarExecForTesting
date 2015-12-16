@@ -15,6 +15,5 @@ import org.junit.runner.RunWith;
         format = {"pretty", "html:target/cucumber"},
         glue = "steps")
 
-
 public class FeatureRunnerTest {
 }
