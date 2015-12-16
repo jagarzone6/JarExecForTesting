@@ -6,6 +6,7 @@ package steps;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -18,11 +19,12 @@ import Pages.*;
 
 public class Steps extends Driver {
     WebDriver driver;
-
+    InitGoogle GoogleMainPage;
     @Before
     public void setUp() throws MalformedURLException {
         System.out.println("Entered setUp in Simple Steps");
         driver = Driver.getNewDriver();
+        GoogleMainPage = new InitGoogle(driver);
     }
 
     @After
@@ -58,6 +60,11 @@ public class Steps extends Driver {
 
         System.out.println("The title is: " + title);
         assertTrue(title.startsWith("Amazon.com"));
+    }
+    @When("^I want to search \"([^\"]*)\"$")
+    public void I_want_search(String txt) throws Throwable {
+        GoogleMainPage.searchText(txt);
+        GoogleMainPage.clickBuscar();
     }
 
 }
