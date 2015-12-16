@@ -14,6 +14,7 @@ import java.net.MalformedURLException;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
+import Pages.*;
 
 public class Steps extends Driver {
     WebDriver driver;
