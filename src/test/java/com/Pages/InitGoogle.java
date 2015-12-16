@@ -1,4 +1,4 @@
-package Pages;
+package com.Pages;
 
 /**
  * Created by jagarzone on 16/12/15.

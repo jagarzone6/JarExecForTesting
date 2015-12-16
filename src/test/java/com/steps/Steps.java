@@ -1,4 +1,4 @@
-package steps;
+package com.steps;
 
 /**
  * Created by jagarzone on 16/12/15.
@@ -15,7 +15,7 @@ import java.net.MalformedURLException;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
-import Pages.*;
+import com.Pages.*;
 
 public class Steps extends Driver {
     WebDriver driver;
