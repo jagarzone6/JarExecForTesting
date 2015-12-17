@@ -32,6 +32,6 @@ public class InitGoogle extends TestBenchTestCase {
     }
     public void clickBuscar() throws InterruptedException {
         driver.findElement(By.name(ID_BUSCAR_BUTTON)).click();
-        //Thread.sleep(2000);
+        Thread.sleep(5000);
     }
 }
