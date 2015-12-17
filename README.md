@@ -1,2 +1,4 @@
-# Jar Executable File For Software Testing
+# Testing .Jar 
 TEST
+java -jar YourTests.jar  classpath:featuresPathPackage --glue StepsPathPackage
+
