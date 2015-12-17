@@ -20,11 +20,13 @@ import com.Pages.*;
 public class Steps extends Driver {
     WebDriver driver;
     InitGoogle GoogleMainPage;
+    InitAmazon AmazonPage;
     @Before
     public void setUp() throws MalformedURLException {
         System.out.println("Entered setUp in Simple Steps");
         driver = Driver.getNewDriver();
         GoogleMainPage = new InitGoogle(driver);
+        AmazonPage = new InitAmazon(driver);
     }
 
     @After
@@ -61,10 +63,15 @@ public class Steps extends Driver {
         System.out.println("The title is: " + title);
         assertTrue(title.startsWith("Amazon.com"));
     }
-    @When("^I want to search \"([^\"]*)\"$")
-    public void I_want_search(String txt) throws Throwable {
+    @When("^I want to search \"([^\"]*)\" in Google$" )
+    public void I_want_search_G(String txt) throws Throwable {
         GoogleMainPage.searchText(txt);
         GoogleMainPage.clickBuscar();
+    }
+    @When("^I want to search \"([^\"]*)\" in Amazon$" )
+    public void I_want_search_A(String txt) throws Throwable {
+        AmazonPage.searchText(txt);
+        AmazonPage.clickBuscar();
     }
 
 }
