@@ -12,6 +12,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import java.net.MalformedURLException;
+import java.util.concurrent.TimeUnit;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
@@ -20,13 +21,13 @@ public class Steps extends SelectWebDriver {
     WebDriver driver;
 
     @Before
-    public void setUp() {
-        System.out.println("Entered setUp in Simple Steps");
+    public void startup() {
+        System.out.println("previous steps");
 
     }
 
     @After
-    public void tearDown() throws Exception {
+    public void turnDown() throws Exception {
         //SelectWebDriver.deleteInstanceBrowser();
     }
 
@@ -34,7 +35,7 @@ public class Steps extends SelectWebDriver {
     public void user_is_at_expedia_com() {
         driver = SelectWebDriver.getNewDriver();
         driver.get("http://expedia.com");
-
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         //String title = driver.getTitle();
         //assertTrue(title.startsWith("Expedia.com"));
 
@@ -48,36 +49,40 @@ public class Steps extends SelectWebDriver {
         @When("^Click on Flights button$")
     public void click_on_Flights_button() {
         // Write code here that turns the phrase above into concrete actions
-       
+       driver.findElement(By.id("tab-flight-tab")).click();
     }
 
     @Then("^Flight options are shown and Roundtrip is selected as default$")
-    public void flight_options_are_shown_and_Roundtrip_is_selected_as_default2()  {
+    public void flight_options_are_shown_and_Roundtrip_is_selected_as_default()  {
         // Write code here that turns the phrase above into concrete actions
-        
+        Assert.assertNotNull(driver.findElement(By.id("flight-type-roundtrip-label")));
     }
 
-    @Given("^user Writes in “Flying from” text field the name of the <Bogota>$")
-    public void user_Writes_in_Flying_from_text_field_the_name_of_the_Bogota()  {
+    @Given("^user Writes in Flying from text field the name of (.*)$")
+    public void user_Writes_in_Flying_from_text_field_the_name_of_the_Bogota(String input)  {
         // Write code here that turns the phrase above into concrete actions
-        
-    }
+        driver.findElement(By.id("flight-origin")).clear();
+        driver.findElement(By.id("flight-origin")).sendKeys("Bogota");
 
+    }
     @Given("^user Clicks on first suggestion for Bogota$")
     public void user_Clicks_on_first_suggestion_for_Bogota()  {
         // Write code here that turns the phrase above into concrete actions
-
+        driver.findElement(By.cssSelector("div.option-text-primary")).click();
     }
 
-    @Given("^Write in “Flying to” text field the name of the <San Francisco>$")
-    public void write_in_Flying_to_text_field_the_name_of_the_San_Francisco()  {
+    @Given("^Write in Flying to text field the name of (.*)$")
+    public void write_in_Flying_to_text_field_the_name_of_the_San_Francisco(String input)  {
         // Write code here that turns the phrase above into concrete actions
+        driver.findElement(By.id("flight-destination")).clear();
+        driver.findElement(By.id("flight-destination")).sendKeys("San Francisco");
 
     }
 
     @Given("^Click on first suggestion for San Francisco$")
     public void click_on_first_suggestion_for_San_Francisco()  {
         // Write code here that turns the phrase above into concrete actions
+        driver.findElement(By.cssSelector("div.option-text-primary")).click();
 
     }
 
@@ -87,8 +92,8 @@ public class Steps extends SelectWebDriver {
 
     }
 
-    @Given("^Select March (\\d+) (\\d+) from calendar <(\\d+)/(\\d+)/(\\d+)>$")
-    public void select_March_from_calendar(int arg1, int arg2, int arg3, int arg4, int arg5)  {
+    @Given("^Select March (\\d+) (\\d+) from calendar (.*)$")
+    public void select_March_from_calendar(int arg1, int arg2, String input)  {
         // Write code here that turns the phrase above into concrete actions
 
     }
