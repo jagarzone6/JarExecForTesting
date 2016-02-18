@@ -203,6 +203,37 @@ public class Steps extends SelectWebDriver {
         driver.findElement(By.id("todRowContainer_EARLYMORNING")).click();
     }
 
+    @Given("^User has selected a departure flight$")
+    public void user_has_selected_a_departure_flight() {
+        // Write code here that turns the phrase above into concrete actions
+        driver.get("https://www.expedia.com/Flights-Search?mode=search&leg1=from:Bogota,%20Colombia%20%28BOG-El%20Dorado%20Intl.%29,to:San%20Francisco,%20CA,%20United%20States%20%28QSF-All%20Airports%29,departure:05/02/2016TANYT&trip=roundtrip&leg2=from:San%20Francisco,%20CA,%20United%20States%20%28QSF-All%20Airports%29,to:Bogota,%20Colombia%20%28BOG-El%20Dorado%20Intl.%29,departure:05/12/2016TANYT&passengers=children:0,adults:1,infantinlap:Y&options=cabinclass:economy&origref=www.expedia.com%2FFlight-Search-All");
+       // driver.findElement(By.id("todRowContainer_EARLYMORNING")).click();
+       // driver.findElement(By.id("airlineRowContainer_AA")).click();
+       // driver.findElement(By.id("stopFilter_stops-1")).click();
+       // driver.findElement(By.xpath("(//button[@type='button'])[24]")).click();
+    }
+
+    @Given("^Click on Select button at the cheapest returning flight$")
+    public void click_on_Select_button_at_the_cheapest_returning_flight() {
+        // Write code here that turns the phrase above into concrete actions
+        //driver.findElement(By.id("stopFilter_stops-1")).click();
+        //driver.findElement(By.id("airlineRowContainer_AA")).click();
+        //driver.findElement(By.id("todRowContainer_EARLYMORNING")).click();
+        //driver.findElement(By.xpath("(//button[@type='button'])[21]")).click();
+
+    }
+
+    @Then("^Can see review of the trip$")
+    public void can_see_review_of_the_trip() {
+        // Write code here that turns the phrase above into concrete actions
+
+    }
+
+    @Then("^Can on Add to trip cheapest car at Add a car section$")
+    public void can_on_Add_to_trip_cheapest_car_at_Add_a_car_section() {
+        // Write code here that turns the phrase above into concrete actions
+       // driver.findElement(By.linkText("Add Economy 2/4Door Car from Alamo to trip")).click();
+    }
 
 
 }
