@@ -10,6 +10,7 @@ import cucumber.api.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 import java.net.MalformedURLException;
 import java.util.concurrent.TimeUnit;
@@ -56,33 +57,32 @@ public class Steps extends SelectWebDriver {
     public void flight_options_are_shown_and_Roundtrip_is_selected_as_default()  {
         // Write code here that turns the phrase above into concrete actions
         Assert.assertNotNull(driver.findElement(By.id("flight-type-roundtrip-label")));
+
     }
 
-    @Given("^user Writes in Flying from text field the name of (.*)$")
-    public void user_Writes_in_Flying_from_text_field_the_name_of_the_Bogota(String input)  {
-        // Write code here that turns the phrase above into concrete actions
-        driver.findElement(By.id("flight-origin")).clear();
-        driver.findElement(By.id("flight-origin")).sendKeys("Bogota");
-
+    @Given("^user Writes in Flying from text field the name of Bogota$")
+    public void user_Writes_in_Flying_from_text_field_the_name_of_Bogota() throws InterruptedException {
+        WebElement txtUserName=driver.findElement(By.id("flight-origin"));
+        txtUserName.sendKeys("Bogota, Colombia (BOG-El Dorado Intl.)");
     }
     @Given("^user Clicks on first suggestion for Bogota$")
     public void user_Clicks_on_first_suggestion_for_Bogota()  {
         // Write code here that turns the phrase above into concrete actions
-        driver.findElement(By.cssSelector("div.option-text-primary")).click();
+        //driver.findElement(By.cssSelector("div.option-text-primary")).click();
     }
 
-    @Given("^Write in Flying to text field the name of (.*)$")
-    public void write_in_Flying_to_text_field_the_name_of_the_San_Francisco(String input)  {
+    @Given("^Write in Flying to text field the name of San Francisco$")
+    public void write_in_Flying_to_text_field_the_name_of_the_San_Francisco()  {
         // Write code here that turns the phrase above into concrete actions
-        driver.findElement(By.id("flight-destination")).clear();
-        driver.findElement(By.id("flight-destination")).sendKeys("San Francisco");
+        WebElement txtUserName=driver.findElement(By.id("flight-destination"));
+        txtUserName.sendKeys("San Francisco (and vicinity), California, United States of America");
 
     }
 
     @Given("^Click on first suggestion for San Francisco$")
     public void click_on_first_suggestion_for_San_Francisco()  {
         // Write code here that turns the phrase above into concrete actions
-        driver.findElement(By.cssSelector("div.option-text-primary")).click();
+        //driver.findElement(By.cssSelector("div.option-text-primary")).click();
 
     }
 
@@ -90,11 +90,23 @@ public class Steps extends SelectWebDriver {
     public void click_on_Departing_field()  {
         // Write code here that turns the phrase above into concrete actions
 
+
     }
 
-    @Given("^Select March (\\d+) (\\d+) from calendar (.*)$")
-    public void select_March_from_calendar(int arg1, int arg2, String input)  {
+    @Given("^Select March (\\d+) (\\d+) from calendar (.*) flight-departing$")
+    public void select_March_from_calendar_flight_departing(int arg1, int arg2, String input)  {
         // Write code here that turns the phrase above into concrete actions
+        WebElement txtUserName=driver.findElement(By.id("flight-departing"));
+        txtUserName.sendKeys(input);
+
+    }
+
+    @Given("^Select March (\\d+) (\\d+) from calendar (.*) flight-returning$")
+    public void select_March_from_calendar_flight_returning(int arg1, int arg2, String input)  {
+        // Write code here that turns the phrase above into concrete actions
+        WebElement txtUserName=driver.findElement(By.id("flight-returning"));
+        txtUserName.clear();
+        txtUserName.sendKeys(input);
 
     }
 
@@ -107,7 +119,7 @@ public class Steps extends SelectWebDriver {
     @When("^Click on Search button$")
     public void click_on_Search_button()  {
         // Write code here that turns the phrase above into concrete actions
-
+        driver.findElement(By.id("search-button")).click();
     }
 
     @Then("^“Flights-Search” service should response with a list of departure flights order by lowest price$")
