@@ -6,7 +6,7 @@ Feature: http://expedia.com test
   The user can sort the results by duration
 
 
-  Scenario: Expedia home page should have Flights button
+  Scenario:
     Given user is at expedia.com
     And can see Flights button
     When Click on Flights button

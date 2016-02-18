@@ -24,18 +24,18 @@ public class Steps extends SelectWebDriver {
 
     @Before
     public void startup() {
-        System.out.println("previous steps");
-
+        System.out.println("New Feature");
+        driver = SelectWebDriver.getNewDriver();
     }
 
     @After
     public void turnDown() throws Exception {
-        //SelectWebDriver.deleteInstanceBrowser();
+        SelectWebDriver.deleteInstanceBrowser();
     }
-
+        /*
     @Given("^user is at expedia.com$")
     public void user_is_at_expedia_com() {
-        driver = SelectWebDriver.getNewDriver();
+
         driver.get("http://expedia.com");
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         //String title = driver.getTitle();
@@ -140,7 +140,7 @@ public class Steps extends SelectWebDriver {
     @Then("^“Flights-Search” service should response with a list of departure flights order by  highest price$")
     public void flights_Search_service_should_response_with_a_list_of_departure_flights_order_by_highest_price()  {
         // Write code here that turns the phrase above into concrete actions
-
+        Assert.assertNotNull(driver.findElement(By.id("sort-select")));
     }
 
     @When("^Click on Sort ComboBox and select Duration-Shortest$")
@@ -152,7 +152,55 @@ public class Steps extends SelectWebDriver {
     @Then("^“Flights-Search” service should response with a list of departure flights order by  shortest duration$")
     public void flights_Search_service_should_response_with_a_list_of_departure_flights_order_by_shortest_duration()  {
         // Write code here that turns the phrase above into concrete actions
-        
+        Assert.assertNotNull(driver.findElement(By.id("sort-select")));
+    }
+        */
+    @Given("^User has searched a roundtrip$")
+    public void user_has_searched_a_roundtrip()  {
+        // Write code here that turns the phrase above into concrete actions
+        driver.get("https://www.expedia.com/Flights-Search?trip=roundtrip&leg1=from:Bogota,%20Colombia%20BOG-El%20Dorado%20Intl.%29,to:San%20Francisco%20and%20vicinity%29,%20California,%20United%20States%20of%20America,departure:03/02/2016TANYT&leg2=from:San%20Francisco%20and%20vicinity%29,%20California,%20United%20States%20of%20America,to:Bogota,%20Colombia%20BOG-El%20Dorado%20Intl.%29,departure:03/12/2016TANYT&passengers=children:0,adults:1,seniors:0,infantinlap:Y&mode=search");
+    }
+
+    @Given("^Click on Select button at the cheapest departure flight$")
+    public void click_on_Select_button_at_the_cheapest_departure_flight()  {
+        // Write code here that turns the phrase above into concrete actions
+        //driver.findElement(By.id("modalCloseButton")).click();
+        //driver.findElement(By.xpath("(//button[@type='button'])[13]")).click();
+
+
+
+    }
+
+    @Given("^Click on the search icon, change date(\\d+) date(\\d+)  and click on Search$")
+    public void click_on_the_search_icon_change_date_date_and_click_on_Search(int arg1, int arg2)  {
+        // Write code here that turns the phrase above into concrete actions
+        WebElement txtUserName=driver.findElement(By.id("departDate"));
+        txtUserName.clear();
+        txtUserName.sendKeys("05/02/2016");
+        WebElement txtUserName2=driver.findElement(By.id("returnDate"));
+        txtUserName2.clear();
+        txtUserName2.sendKeys("05/12/2016");
+
+    }
+
+    @Given("^Click on filter and select (\\d+) stop$")
+    public void click_on_filter_and_select_stop(int arg1)  {
+        // Write code here that turns the phrase above into concrete actions
+        driver.findElement(By.id("stopFilter_stops-1")).click();
+
+
+    }
+
+    @Given("^Click on filter and select American Airlines$")
+    public void click_on_filter_and_select_American_Airlines()  {
+        // Write code here that turns the phrase above into concrete actions
+        driver.findElement(By.id("airlineRowContainer_AA")).click();
+    }
+
+    @Given("^Click on filter and select Early Morning$")
+    public void click_on_filter_and_select_Early_Morning()  {
+        // Write code here that turns the phrase above into concrete actions
+        driver.findElement(By.id("todRowContainer_EARLYMORNING")).click();
     }
 
 
