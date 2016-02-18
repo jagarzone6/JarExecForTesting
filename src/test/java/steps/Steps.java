@@ -11,6 +11,7 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 import java.net.MalformedURLException;
 import java.util.concurrent.TimeUnit;
@@ -125,13 +126,14 @@ public class Steps extends SelectWebDriver {
     @Then("^“Flights-Search” service should response with a list of departure flights order by lowest price$")
     public void flights_Search_service_should_response_with_a_list_of_departure_flights_order_by_lowest_price()  {
         // Write code here that turns the phrase above into concrete actions
-
+        Assert.assertNotNull(driver.findElement(By.id("sort-select")));
     }
 
 
-    @When("^Click on Sort ComboBox and select Price \\( Highest \\)$")
+    @When("^Click on Sort ComboBox and select Price-Highest$")
     public void click_on_Sort_ComboBox_and_select_Price_Highest()  {
         // Write code here that turns the phrase above into concrete actions
+        new Select(driver.findElement(By.id("sort-select"))).selectByVisibleText("Price (Highest)");
 
     }
 
@@ -141,10 +143,10 @@ public class Steps extends SelectWebDriver {
 
     }
 
-    @When("^Click on Sort ComboBox and select Duration \\(Shortest\\)$")
+    @When("^Click on Sort ComboBox and select Duration-Shortest$")
     public void click_on_Sort_ComboBox_and_select_Duration_Shortest()  {
         // Write code here that turns the phrase above into concrete actions
-
+        new Select(driver.findElement(By.id("sort-select"))).selectByVisibleText("Duration (Shortest)");
     }
 
     @Then("^“Flights-Search” service should response with a list of departure flights order by  shortest duration$")

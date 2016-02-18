@@ -2,12 +2,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.c0deattack</groupId>
-    <artifactId>executable-tests</artifactId>
+    <groupId>QAtest</groupId>
+    <artifactId>tests</artifactId>
     <version>1.0</version>
     <packaging>jar</packaging>
 
-    <name>executable-tests</name>
+    <name>QA-tests</name>
 
     <properties>
         <cucumber.version>1.2.2</cucumber.version>

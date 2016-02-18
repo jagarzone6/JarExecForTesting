@@ -23,7 +23,7 @@ Feature: http://expedia.com test
     When Click on Search button
     Then “Flights-Search” service should response with a list of departure flights order by lowest price
 
-      When Click on Sort ComboBox and select Price ( Highest )
+      When Click on Sort ComboBox and select Price-Highest
       Then “Flights-Search” service should response with a list of departure flights order by  highest price
-      When Click on Sort ComboBox and select Duration (Shortest)
+      When Click on Sort ComboBox and select Duration-Shortest
       Then “Flights-Search” service should response with a list of departure flights order by  shortest duration
