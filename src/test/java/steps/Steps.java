@@ -32,7 +32,7 @@ public class Steps extends SelectWebDriver {
     public void turnDown() throws Exception {
         SelectWebDriver.deleteInstanceBrowser();
     }
-        /*
+
     @Given("^user is at expedia.com$")
     public void user_is_at_expedia_com() {
 
@@ -154,7 +154,7 @@ public class Steps extends SelectWebDriver {
         // Write code here that turns the phrase above into concrete actions
         Assert.assertNotNull(driver.findElement(By.id("sort-select")));
     }
-        */
+
     @Given("^User has searched a roundtrip$")
     public void user_has_searched_a_roundtrip()  {
         // Write code here that turns the phrase above into concrete actions
