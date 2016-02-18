@@ -1,7 +1,7 @@
 package steps;
 
 /**
- * Created by jagarzone on 16/12/15.
+ * Created by jagarzone on 18/02/16.
  */import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
@@ -15,18 +15,18 @@ import java.net.MalformedURLException;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
-public class Steps extends Driver {
+public class Steps extends SelectWebDriver {
     WebDriver driver;
 
     @Before
     public void setUp() throws MalformedURLException {
         System.out.println("Entered setUp in Simple Steps");
-        driver = Driver.getNewDriver();
+        driver = SelectWebDriver.getNewDriver();
     }
 
     @After
     public void tearDown() throws Exception {
-        Driver.deleteInstanceBrowser();
+        SelectWebDriver.deleteInstanceBrowser();
     }
 
     @Given("^that I am on google.com$")
