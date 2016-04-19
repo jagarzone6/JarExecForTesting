@@ -1,4 +1,4 @@
-package steps;
+package com.steps;
 
 /**
  * Created by jagarzone on 16/12/15.
@@ -6,6 +6,7 @@ package steps;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -14,14 +15,18 @@ import java.net.MalformedURLException;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
+import com.Pages.*;
 
 public class Steps extends Driver {
     WebDriver driver;
-
+    InitGoogle GoogleMainPage;
+    InitAmazon AmazonPage;
     @Before
     public void setUp() throws MalformedURLException {
         System.out.println("Entered setUp in Simple Steps");
         driver = Driver.getNewDriver();
+        GoogleMainPage = new InitGoogle(driver);
+        AmazonPage = new InitAmazon(driver);
     }
 
     @After
@@ -57,6 +62,16 @@ public class Steps extends Driver {
 
         System.out.println("The title is: " + title);
         assertTrue(title.startsWith("Amazon.com"));
+    }
+    @When("^I want to search \"([^\"]*)\" in Google$" )
+    public void I_want_search_G(String txt) throws Throwable {
+        GoogleMainPage.searchText(txt);
+        GoogleMainPage.clickBuscar();
+    }
+    @When("^I want to search \"([^\"]*)\" in Amazon$" )
+    public void I_want_search_A(String txt) throws Throwable {
+        AmazonPage.searchText(txt);
+        AmazonPage.clickBuscar();
     }
 
 }
