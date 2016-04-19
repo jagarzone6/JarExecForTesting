@@ -12,7 +12,7 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         features = "classpath:features",
-        format = {"pretty", "html:target/cucumber"},
+        plugin = {"pretty", "html:target/cucumber/html", "json:target/cucumber/report.json"},
         glue = "def")
 
 public class FeatureRunnerTest {
