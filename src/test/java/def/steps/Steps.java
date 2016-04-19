@@ -2,11 +2,15 @@ package def.steps;
 
 /**
  * Created by jagarzone on 16/12/15.
- */import cucumber.api.java.After;
+ */
+
+import cucumber.api.PendingException;
+import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import def.Pages.AmazonSearchResults;
 import def.Pages.InitAmazon;
 import def.Pages.InitGoogle;
 import org.junit.Assert;
@@ -22,6 +26,7 @@ public class Steps extends Driver {
     WebDriver driver;
     InitGoogle GoogleMainPage;
     InitAmazon AmazonPage;
+    AmazonSearchResults AmazonSearchResults;
     @Before
     public void setUp() throws MalformedURLException {
         System.out.println("Entered setUp in Simple Steps");
@@ -70,4 +75,12 @@ public class Steps extends Driver {
         AmazonPage.clickBuscar();
     }
 
+    @Then("^Amazon search should includes Amazons choice$")
+    public void amazonSearchShouldIncludesAmazonsChoice() throws InterruptedException {
+        AmazonSearchResults = new AmazonSearchResults(driver);
+        Assert.assertNotNull(AmazonSearchResults.getImagelinkcont());
+        Assert.assertNotNull(AmazonSearchResults.getImagelinkcont());
+        AmazonSearchResults.clickAtImage();
+        Thread.sleep(5000);
+    }
 }
