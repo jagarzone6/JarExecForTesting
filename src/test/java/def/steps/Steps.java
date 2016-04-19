@@ -1,4 +1,4 @@
-package com.steps;
+package def.steps;
 
 /**
  * Created by jagarzone on 16/12/15.
@@ -7,6 +7,8 @@ import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import def.Pages.InitAmazon;
+import def.Pages.InitGoogle;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -15,7 +17,6 @@ import java.net.MalformedURLException;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
-import com.Pages.*;
 
 public class Steps extends Driver {
     WebDriver driver;
