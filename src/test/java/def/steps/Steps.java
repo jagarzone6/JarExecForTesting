@@ -75,12 +75,21 @@ public class Steps extends Driver {
         AmazonPage.clickBuscar();
     }
 
-    @Then("^Amazon search should includes Amazons choice$")
+    @Then("^Amazon search results should includes Amazons choice$")
     public void amazonSearchShouldIncludesAmazonsChoice() throws InterruptedException {
         AmazonSearchResults = new AmazonSearchResults(driver);
         Assert.assertNotNull(AmazonSearchResults.getImagelinkcont());
         Assert.assertNotNull(AmazonSearchResults.getImagelinkcont());
         AmazonSearchResults.clickAtImage();
         Thread.sleep(5000);
+    }
+
+
+    @Given("^I searched for headphones at amazon.com$")
+    public void iSearchedForHeadphonesAtAmazonCom() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        this.that_I_am_on_amazon_com();
+        this.I_want_search_A("Headphones");
+
     }
 }

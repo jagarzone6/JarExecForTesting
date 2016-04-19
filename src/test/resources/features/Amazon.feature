@@ -4,4 +4,9 @@ Feature: Amazon test
     Given that I am on amazon.com
     And I should see the title Amazon.com
     When I want to search "headphones" in Amazon
-    Then Amazon search should includes Amazons choice
+
+
+
+  Scenario: When I search for headphones, amazon should show me AmazonsChoice
+    Given I searched for headphones at amazon.com
+    Then Amazon search results should includes Amazons choice
