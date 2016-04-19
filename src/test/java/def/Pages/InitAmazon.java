@@ -15,18 +15,27 @@ public class InitAmazon {
 
     public InitAmazon(WebDriver webDriver){webDriver_=webDriver;}
 
+    public void loadPage(){
+        webDriver_.get("http://www.amazon.com");
+
+    }
+    public String getTitle(){
+
+        String title = webDriver_.getTitle();
+        return title;
+    }
+
     public void searchText(String txt){
-        //txtInput =  $(TextFieldElement.class).id(ID_TXT_INPUT);
-        //txtInput.sendKeys(txt);
+
        WebElement textinput = webDriver_.findElement(By.id(ID_TXT_INPUT));
         textinput.clear();
         textinput.sendKeys(txt);
     }
     public void clickBuscar() throws InterruptedException {
-        //searchButton = $(ButtonElement.class).id(ID_SEARCH_BUTTON);
+
         WebElement searchbutton = webDriver_.findElement(By.id(ID_SEARCH_BUTTON));
         searchbutton.click();
-        //driver.findElement(By.cssSelector("input.nav-input")).click();
+
         Thread.sleep(5000);
     }
 }

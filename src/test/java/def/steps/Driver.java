@@ -16,7 +16,6 @@ public class Driver {
     static WebDriver driver;
     static DesiredCapabilities caps;
 
-    static boolean acceptNextAlert = true;
     static StringBuffer verificationErrors = new StringBuffer();
 
     public static WebDriver getNewDriver() throws MalformedURLException {

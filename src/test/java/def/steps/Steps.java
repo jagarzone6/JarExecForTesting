@@ -26,8 +26,6 @@ public class Steps extends Driver {
     public void setUp() throws MalformedURLException {
         System.out.println("Entered setUp in Simple Steps");
         driver = Driver.getNewDriver();
-        GoogleMainPage = new InitGoogle(driver);
-        AmazonPage = new InitAmazon(driver);
     }
 
     @After
@@ -37,32 +35,29 @@ public class Steps extends Driver {
 
     @Given("^that I am on google.com$")
     public void that_I_am_on_google_com() {
-        driver.get("http://www.google.com");
-
-        String title = driver.getTitle();
-        Assert.assertTrue(title.equals("Google"));
+        GoogleMainPage = new InitGoogle(driver);
+        GoogleMainPage.loadPage();
+        Assert.assertTrue(GoogleMainPage.getTitle().equals("Google"));
     }
 
     @Given("^that I am on amazon.com$")
     public void that_I_am_on_amazon_com() {
-
-        driver.get("http://www.amazon.com");
-
-        String title = driver.getTitle();
-        Assert.assertTrue(title.startsWith("Amazon.com"));
+        AmazonPage = new InitAmazon(driver);
+        AmazonPage.loadPage();
+        Assert.assertTrue(AmazonPage.getTitle().startsWith("Amazon.com"));
     }
 
     @Then("^I should see the search box$")
     public void I_should_see_the_search_box() {
-        Assert.assertNotNull(driver.findElement(By.id("gs_lc0")));
+
+        Assert.assertNotNull(GoogleMainPage.getsearchBox());
     }
 
     @Then("^I should see the title Amazon.com$")
     public void I_should_see_the_title_Amazon_com() {
-        String title = driver.getTitle();
 
-        System.out.println("The title is: " + title);
-        assertTrue(title.startsWith("Amazon.com"));
+        System.out.println("The title is: " + AmazonPage.getTitle());
+        assertTrue(AmazonPage.getTitle().startsWith("Amazon.com"));
     }
     @When("^I want to search \"([^\"]*)\" in Google$" )
     public void I_want_search_G(String txt) throws Throwable {
