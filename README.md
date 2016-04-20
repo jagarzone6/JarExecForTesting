@@ -1,4 +1,4 @@
 # Testing .Jar 
-TEST
-java -jar YourTests.jar  classpath:featuresPathPackage --glue StepsPathPackage
+TEST using command line:
+java -jar YourTests.jar classpath:featuresPathPackage --glue stepsPathPackage --plugin html:testReport/html --plugin json:testReport/json
 
