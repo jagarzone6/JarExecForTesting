@@ -10,7 +10,7 @@ import org.openqa.selenium.WebElement;
 
 public class InitAmazon {
     static String ID_TXT_INPUT = "twotabsearchtextbox";
-    static String ID_SEARCH_BUTTON = "nav-search-submit-text";
+    static String ID_SEARCH_BUTTON = "nav-input";
     WebDriver webDriver_;
 
     public InitAmazon(WebDriver webDriver){webDriver_=webDriver;}
@@ -33,7 +33,7 @@ public class InitAmazon {
     }
     public void clickBuscar() throws InterruptedException {
 
-        WebElement searchbutton = webDriver_.findElement(By.id(ID_SEARCH_BUTTON));
+        WebElement searchbutton = webDriver_.findElement(By.className(ID_SEARCH_BUTTON));
         searchbutton.click();
 
         Thread.sleep(5000);

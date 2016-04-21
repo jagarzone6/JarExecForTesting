@@ -14,8 +14,8 @@ public class AmazonSearchResults {
 
     public AmazonSearchResults(WebDriver webDriver){webDriver_=webDriver;}
 
-    static String ID_IMAGE_LINK_AMAZONCHOISE = "s-amazons-choice-product-overlay";
-    static String TITLE_LINK_AMAZONCHOISE = "Panasonic ErgoFit In-Ear Earbud Headphones RP-HJE120-K (Black) Dynamic Crystal Clear Sound, Ergonomic Comfort-Fit";
+    static String ID_IMAGE_LINK_AMAZONCHOISE = "result_1";
+    static String TITLE_LINK_AMAZONCHOISE = "/s/ref=sr_1_1_hso_sc_smartcategory_1?rh=n%3A172541%2Ck%3AHeadphones&keywords=Headphones&ie=UTF8&qid=1461254562&sr=8-1-acs";
 
     WebElement Imagelinkcont;
     WebElement TitleLink;
