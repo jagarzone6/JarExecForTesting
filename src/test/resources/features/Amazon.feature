@@ -7,6 +7,6 @@ Feature: Amazon test
 
 
 
-  Scenario: When I search for headphones, amazon should show me AmazonsChoice
+  Scenario: When I search for headphones, amazon should show me bestseller
     Given I searched for headphones at amazon.com
-    Then Amazon search results should includes Amazons choice
+    Then Amazon search results should includes bestseller

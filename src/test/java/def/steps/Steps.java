@@ -75,7 +75,7 @@ public class Steps extends Driver {
         AmazonPage.clickBuscar();
     }
 
-    @Then("^Amazon search results should includes Amazons choice$")
+    @Then("^Amazon search results should includes bestseller$")
     public void amazonSearchShouldIncludesAmazonsChoice() throws InterruptedException {
         AmazonSearchResults = new AmazonSearchResults(driver);
         Assert.assertNotNull(AmazonSearchResults.getImagelinkcont());
