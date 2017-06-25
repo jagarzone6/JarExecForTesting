@@ -45,6 +45,7 @@ public class Driver {
                 options.addArguments("--disable-default-apps");
                 options.addArguments("test-type=browser");
                 options.addArguments("disable-infobars");
+                options.addArguments("disable-extensions");
                 System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver");
                 driver = new ChromeDriver(options);
                 break;
