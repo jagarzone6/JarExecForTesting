@@ -46,6 +46,6 @@ public class InitGoogle  {
     public void clickBuscar() throws InterruptedException {
         button = webDriver_.findElement(By.name(ID_SEARCH_BUTTON));
         button.click();
-        Thread.sleep(5000);
+        //Thread.sleep(5000);
     }
 }

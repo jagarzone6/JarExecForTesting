@@ -30,12 +30,12 @@ public class Steps extends Driver {
     @Before
     public void setUp() throws MalformedURLException {
         System.out.println("Entered setUp in Simple Steps");
-        driver = Driver.getNewDriver(browserType.CHROME);
+        driver = getNewDriver(browserType.FIREFOX);
     }
 
     @After
     public void tearDown() throws Exception {
-        Driver.deleteInstanceBrowser();
+        deleteInstanceBrowser();
     }
 
     @Given("^that I am on google.com$")
@@ -81,7 +81,7 @@ public class Steps extends Driver {
         Assert.assertNotNull(AmazonSearchResults.getImagelinkcont());
         Assert.assertNotNull(AmazonSearchResults.getImagelinkcont());
         AmazonSearchResults.clickAtImage();
-        Thread.sleep(5000);
+        //Thread.sleep(5000);
     }
 
 

@@ -36,6 +36,6 @@ public class InitAmazon {
         WebElement searchbutton = webDriver_.findElement(By.className(ID_SEARCH_BUTTON));
         searchbutton.click();
 
-        Thread.sleep(5000);
+        //Thread.sleep(5000);
     }
 }
