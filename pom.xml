@@ -5,7 +5,7 @@
     <groupId>com.c0deattack</groupId>
     <artifactId>executable-tests</artifactId>
     <version>1.0</version>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
 
     <name>executable-tests</name>
 
