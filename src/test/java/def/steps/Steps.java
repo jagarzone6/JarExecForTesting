@@ -4,7 +4,6 @@ package def.steps;
  * Created by jagarzone on 16/12/15.
  */
 
-import cucumber.api.PendingException;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
@@ -13,8 +12,9 @@ import cucumber.api.java.en.When;
 import def.Pages.AmazonSearchResults;
 import def.Pages.InitAmazon;
 import def.Pages.InitGoogle;
+import def.browser.Driver;
+import def.browser.browserType;
 import org.junit.Assert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import java.net.MalformedURLException;
@@ -30,7 +30,7 @@ public class Steps extends Driver {
     @Before
     public void setUp() throws MalformedURLException {
         System.out.println("Entered setUp in Simple Steps");
-        driver = Driver.getNewDriver();
+        driver = Driver.getNewDriver(browserType.CHROME);
     }
 
     @After
